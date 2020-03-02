@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<head>
+    <title>EdRepoe - Browse Modules</title>
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" /> -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div class="browse">
+        <div class="header">
+            <div class="header-left">
+                <a href="./index.html">
+                    <h2>EdRepoe</h2>
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="./browse.html">Browse</a>
+                <a href="#">My Modules</a>
+                <a href="#">Moderate</a>
+                <a href="#">Manage Users</a>
+                <a href="#">Harvest</a>
+                <img class="icon" src="./resources/upload.png" />
+                <img class="icon" src="./resources/search.png" />
+                <img class="icon" src="./resources/profile.png" />
+            </div>
+        </div>
+
+
+        <div class="browse-center">
+            <div class="browse-left-side">
+                <div class="browse-section">
+                    <div class="search">
+                        <img class="icon-small" src="./resources/search-input.png" />
+                        <input class="search" type="text" placeholder="Search for a module" />
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Show only top-level modules</label>
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Show only modules with materials</label>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="browse-section">
+
+                    <h3>Category</h3>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Testing</label>
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Programming</label>
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Teaching</label>
+                    </div>
+                </div>
+
+                <hr class="divider">
+                <div class="browse-section">
+
+                    <h3>Type</h3>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Testing</label>
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Programming</label>
+                    </div>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" />
+                        <label>Teaching</label>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="browse-right-side">
+                <div class="browse-header">
+                    <h4 class="id-col">ID</h4>
+                    <h4 class="title-col">Title</h4>
+                    <h4 class="submitter-col">Submitter</h4>
+                    <h4 class="date-col">Date</h4>
+                    <h4 class="category-col">Category</h4>
+                    <h4 class="status-col">Status</h4>
+                    <img class="icon-small hidden" src="./resources/ellipsis.png" />
+                </div>
+
+                <!-- examples of entries -->
+                <div id="browse-entry-1" class="browse-entry">
+                    <p class="id-col">46</p>
+                    <p class="title-col">
+                        <a href="#">Application Controls and Audit</a>
+                    </p>
+                    <p class="submitter-col">Admin User</p>
+                    <p class="date-col">11/10/12</p>
+                    <p class="category-col">Teaching</p>
+                    <p class="status-col">Active</p>
+                    <img id="browse-entry-1" class="ellipsis icon-small hidden" src="./resources/ellipsis.png" />
+
+                    <div class="modal modal-table hidden" tabindex="-1">
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/edit.png" /> <span>Edit</span>
+                        </div>
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/trash.png"> <span>Delete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="browse-entry-2" class="browse-entry">
+                    <p class="id-col">46</p>
+                    <p class="title-col">
+                        <a href="#">Application Controls and Audit</a>
+                    </p>
+                    <p class="submitter-col">Admin User</p>
+                    <p class="date-col">11/10/12</p>
+                    <p class="category-col">Teaching</p>
+                    <p class="status-col">Active</p>
+                    <img id="browse-entry-2" class="ellipsis icon-small hidden" src="./resources/ellipsis.png" />
+
+                    <div class="modal modal-table hidden" tabindex="-1">
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/edit.png" /> <span>Edit</span>
+                        </div>
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/trash.png"> <span>Delete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="browse-entry-3" class="browse-entry">
+                    <p class="id-col">46</p>
+                    <p class="title-col">
+                        <a href="#">Application Controls and Audit</a>
+                    </p>
+                    <p class="submitter-col">Admin User</p>
+                    <p class="date-col">11/10/12</p>
+                    <p class="category-col">Teaching</p>
+                    <p class="status-col">Active</p>
+                    <img id="browse-entry-3" class="ellipsis icon-small hidden" src="./resources/ellipsis.png" />
+
+                    <div class="modal modal-table hidden" tabindex="-1">
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/edit.png" /> <span>Edit</span>
+                        </div>
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/trash.png"> <span>Delete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="browse-entry-4" class="browse-entry">
+                    <p class="id-col">46</p>
+                    <p class="title-col">
+                        <a href="#">Application Controls and Audit</a>
+                    </p>
+                    <p class="submitter-col">Admin User</p>
+                    <p class="date-col">11/10/12</p>
+                    <p class="category-col">Teaching</p>
+                    <p class="status-col">Active</p>
+                    <img id="browse-entry-4" class="ellipsis icon-small hidden" src="./resources/ellipsis.png" />
+
+                    <div class="modal modal-table hidden" tabindex="-1">
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/edit.png" /> <span>Edit</span>
+                        </div>
+                        <div class="modal-row">
+                            <img class="icon-small" src="./resources/trash.png"> <span>Delete</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <footer>Powered By EdRepoe</footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="browse.js"></script>
+</body>
+
+</html>
