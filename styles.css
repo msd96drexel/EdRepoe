@@ -318,8 +318,22 @@ input[type="checkbox"]:checked:before {
 .submitter-col,
 .date-col,
 .category-col,
-.status-col {
+.status-col,
+.first-name-col {
     flex: 1;
+}
+
+.email-col {
+    flex: 2;
+}
+
+p.email-col {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.first-name-col {
+    font-weight: 800;
 }
 
 .title-col {
