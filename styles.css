@@ -44,7 +44,8 @@ a {
     color: #000;
 }
 
-a:hover {
+a:hover,
+a.active {
     text-decoration: underline;
 }
 
@@ -125,7 +126,7 @@ li {
 .icon-small {
     width: 18px;
     height: auto;
-    max-height: 20px;
+    max-height: 18px;
 }
 
 .hidden {
