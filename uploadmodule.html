@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+    <title>EdRepoe - Upload Module</title>
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" /> -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div class="browse">
+        <div class="header">
+            <div class="header-left">
+                <a href="./index.html">
+                    <h2>EdRepoe</h2>
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="./browse.html">Browse</a>
+                <a href="./mymodules.html">My Modules</a>
+                <a href="./moderate.html">Moderate</a>
+                <a href="./manageusers.html">Manage Users</a>
+                <a href="#">Harvest</a>
+                <a href="./uploadmodule.html"><img class="icon upload-icon" src="./resources/upload.png" /></a>
+                <img class="icon" src="./resources/search.png" />
+                <img class="icon" src="./resources/profile.png" />
+            </div>
+        </div>
+
+        <div class="upload-module-center">
+
+            <div class="upload-module-left">
+                <div class="upload-module-left-up">
+                    <h2 class="upload-module-title">Upload Module</h2>
+
+                    <h3 class="upload-module-active">Basic Info</h3>
+                    <h3 class="upload-module-inactive">Materials</h3>
+                    <h3 class="upload-module-inactive">References</h3>
+                    <h3 class="upload-module-inactive">Misc</h3>
+                </div>
+                <div class="upload-module-left-down">
+                    <button class="button-secondary submit-button">Submit</button>
+                    <button class="button-secondary delete-button">Delete</button>
+                </div>
+            </div>
+
+            <div class="upload-module-right">
+                <div class="upload-module-card">
+                    <div class="upload-module-inputs">
+                        <label>Title</label>
+                        <input type="text" placeholder="Child module">
+
+                        <label>Description</label>
+                        <textarea placeholder="Description"></textarea>
+
+                        <label>Author</label>
+                        <input type="text" placeholder="Author name">
+                    </div>
+                    <div class="prev-next">
+                        <button class="button-quaternary">Previous</button>
+                        <button class="button-tertiary">Next</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer>Powered By EdRepoe</footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
