@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<head>
+    <title>EdRepoe - View Module</title>
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" /> -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div class="view-module">
+        <div class="header">
+            <div class="header-left">
+                <a href="./index.html">
+                    <h2>EdRepoe</h2>
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="./browse.html">Browse</a>
+                <a href="#">My Modules</a>
+                <a href="#">Moderate</a>
+                <a href="#">Manage Users</a>
+                <a href="#">Harvest</a>
+                <img class="icon" src="./resources/upload.png" />
+                <img class="icon" src="./resources/search.png" />
+                <img class="icon" src="./resources/profile.png" />
+            </div>
+        </div>
+
+        <div id="module" class="view-module-content">
+            <div class="module-info">
+                <div class="module-info-left">
+                    <h2 class="module-title">Capstone Design Templates</h2>
+                    <p class="module-author">Greg Hislop</p>
+                    <p class="module-description">This module contains a set of templates used to help students create documents for team software projects in a capstone design sequence. The requirements specification and design specification are loosely based on the related IEEE
+                        standards (but scaled down considerably)</p>
+                    <p class="module-author-comments">Author comments...</p>
+                </div>
+
+                <div class="module-info-right">
+                    <div class="module-material-nav">
+                        <h5 class="module-material-nav-link selected" onclick="showModuleInfo()">General</h5>
+                        <h5 class="module-material-nav-link" onclick="showMaterialsInfo()">Materials</h5>
+                    </div>
+
+                    <p class="module-timestamp">Version 1 • 3/9/2007 • 9:26 PM</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="module-cards">
+                <div class="module-card">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li>Design Support Tools and Evalution</li>
+                        <li>Requirements specification & documentation</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li>Requirements Specification</li>
+                        <li>Design Specification</li>
+                        <li>Requirements Review Report</li>
+                        <li>Test Specification (based on Requirements)</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h4>Learning Objectives</h4>
+                    <ul>
+                        <li><span class="learning-objective">Application</span> - Contribute as a team member to requirements specification, design, and implementation of a software product.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h4>Pre-Requisites</h4>
+                    <ul>
+                        <li>Students must have at least general knowldege of the software development life cycle. Note that this should include an understanding of the phases involved, but need not be any particular model.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h4>Related Modules (1)</h4>
+            <ul class="module-description">
+                <li>Requirements Specification</li>
+            </ul>
+
+            <hr class="divider">
+
+            <h4>Comments (2)</h4>
+
+            <div class="module-comments">
+                <div class="module-comment">
+                    <div class="comment-content">
+                        <p class="comment-name">Mike Inzo <span class="comment-time">• 13y</span></p>
+                        <p class="comment-title">Best Module Ever Dude</p>
+                        <p class="comment-description">Really great module. Love the content. Can’t wait to use this module and share the knowledge! Please post more modules, I’m a huge fan.</p>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+
+                <div class="module-comment">
+                    <div class="comment-content">
+                        <p class="comment-name">Mike Inzo <span class="comment-time">• 13y</span></p>
+                        <p class="comment-title">Best Module Ever Dude</p>
+                        <p class="comment-description">Really great module. Love the content. Can’t wait to use this module and share the knowledge! Please post more modules, I’m a huge fan.</p>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="materials" class="view-module-content hidden-gone">
+            <div class="module-material-nav">
+                <h5 class="module-material-nav-link" onclick="showModuleInfo()">General</h5>
+                <h5 class="module-material-nav-link selected" onclick="showMaterialsInfo()">Materials</h5>
+            </div>
+
+            <h4>Materials (4)</h4>
+
+            <div class="module-cards">
+                <div class="material-card">
+                    <h4>Launch Report, Cycle 1</h4>
+                    <img class="download" src="./resources/download.png" />
+                    <div class="comment-like-dislike-materials">
+                        <img class="icon-small comment-icon" src="./resources/comment.png" />
+                        <p class="comment-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>Launch Report, Cycle N</h4>
+                    <img class="download" src="./resources/download.png" />
+                    <div class="comment-like-dislike-materials">
+                        <img class="icon-small comment-icon" src="./resources/comment.png" />
+                        <p class="comment-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>Requirements Specification</h4>
+                    <img class="download" src="./resources/download.png" />
+                    <div class="comment-like-dislike-materials">
+                        <img class="icon-small comment-icon" src="./resources/comment.png" />
+                        <p class="comment-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+
+                <div class="material-card">
+                    <h4>Review Report</h4>
+                    <img class="download" src="./resources/download.png" />
+                    <div class="comment-like-dislike-materials">
+                        <img class="icon-small comment-icon" src="./resources/comment.png" />
+                        <p class="comment-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h4>Comments for Launch Report, Cycle 1 (2)</h4>
+
+            <div class="module-comments">
+                <div class="module-comment">
+                    <div class="comment-content">
+                        <p class="comment-name">Mike Inzo <span class="comment-time">• 13y</span></p>
+                        <p class="comment-title">Best Material Ever Dude</p>
+                        <p class="comment-description">Really great material. Love the content. Can’t wait to use this material and share the knowledge! Please post more materials, I’m a huge fan.</p>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+
+                <div class="module-comment">
+                    <div class="comment-content">
+                        <p class="comment-name">Mike Inzo <span class="comment-time">• 13y</span></p>
+                        <p class="comment-title">Best Material Ever Dude</p>
+                        <p class="comment-description">Really great material. Love the content. Can’t wait to use this material and share the knowledge! Please post more materials, I’m a huge fan.</p>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <img class="icon-small comment-icon" src="./resources/like.png" />
+                        <p class="like-count">0</p>
+                        <img class="icon-small comment-icon" src="./resources/dislike.png" />
+                        <p class="dislike-count">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h4>Other Resources (0)</h4>
+            <p class="module-description">No other resources</p>
+        </div>
+
+        <footer>Powered By EdRepoe</footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
