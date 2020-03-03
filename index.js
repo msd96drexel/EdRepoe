@@ -27,3 +27,11 @@ function showMaterialsInfo() {
     $('#module').addClass('hidden-gone');
     $('#materials').removeClass('hidden-gone');
 }
+
+$('.upload-icon').mouseenter(function() {
+    $('.upload-icon').attr('src', './resources/upload-hover.png');
+});
+
+$('.upload-icon').mouseleave(function() {
+    $('.upload-icon').attr('src', './resources/upload.png');
+});
