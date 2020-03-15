@@ -1,0 +1,330 @@
+USE [target1DB]
+GO
+/****** Object:  Table [dbo].[Emails]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Emails](
+	[EmailID] [int] IDENTITY(10,1) NOT NULL,
+	[Subject] [varchar](100) NOT NULL,
+	[Message] [text] NOT NULL,
+ CONSTRAINT [PK_Emails] PRIMARY KEY CLUSTERED 
+(
+	[EmailID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MaterialComments]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MaterialComments](
+	[MaterialID] [int] NOT NULL,
+	[Comments] [varchar](1000) NOT NULL,
+	[Subject] [varchar](250) NOT NULL,
+	[Date] [varchar](50) NOT NULL,
+	[Rating] [float] NOT NULL,
+	[RatingImage] [varchar](50) NOT NULL,
+	[Author] [varchar](50) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Materials]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Materials](
+	[MaterialID] [int] IDENTITY(1,1) NOT NULL,
+	[IdentifyingInfo] [varchar](200) NOT NULL,
+	[LinkToMaterial] [varchar](200) NOT NULL,
+	[InitialModuleID] [int] NOT NULL,
+	[Rating] [float] NOT NULL,
+	[RatingImage] [varchar](200) NOT NULL,
+	[NumberOfRatings] [int] NOT NULL,
+	[AccessFlag] [int] NOT NULL,
+ CONSTRAINT [PK_Materials_3__51] PRIMARY KEY NONCLUSTERED 
+(
+	[MaterialID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UQ_Materials_2__51] UNIQUE NONCLUSTERED 
+(
+	[MaterialID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Module]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Module](
+	[ModuleID] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Abstract] [text] NOT NULL,
+	[LectureSize] [varchar](50) NULL,
+	[LabSize] [varchar](50) NULL,
+	[ExerciseSize] [varchar](50) NULL,
+	[HomeworkSize] [varchar](50) NULL,
+	[OtherSize] [varchar](50) NULL,
+	[AuthorComments] [text] NULL,
+	[Status] [int] NOT NULL,
+	[BaseID] [int] NOT NULL,
+	[Version] [int] NOT NULL,
+	[Submitter] [varchar](25) NOT NULL,
+	[SubmitterID] [varchar](25) NULL,
+	[CheckInComments] [text] NOT NULL,
+ CONSTRAINT [PK_Module_2__53] PRIMARY KEY NONCLUSTERED 
+(
+	[ModuleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UQ_Module_1__53] UNIQUE NONCLUSTERED 
+(
+	[ModuleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModuleBases]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModuleBases](
+	[BaseID] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [varchar](300) NOT NULL,
+	[LockedBy] [varchar](25) NOT NULL,
+	[ModuleIdentifier] [varchar](35) NULL,
+ CONSTRAINT [PK_ModuleBases] PRIMARY KEY CLUSTERED 
+(
+	[BaseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModuleGroups]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModuleGroups](
+	[GroupID] [int] NOT NULL,
+	[BaseID] [int] NOT NULL,
+ CONSTRAINT [PK_ModuleGroups] PRIMARY KEY CLUSTERED 
+(
+	[BaseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModuleLog]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModuleLog](
+	[ModuleID] [int] NOT NULL,
+	[Message] [text] NOT NULL,
+	[UserName] [varchar](25) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModuleMaterialsLink]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModuleMaterialsLink](
+	[ModuleID] [int] NOT NULL,
+	[MaterialID] [int] NOT NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_ModuleMaterialsLink_1__51] PRIMARY KEY NONCLUSTERED 
+(
+	[ModuleID] ASC,
+	[MaterialID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ModuleRatings]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ModuleRatings](
+	[ModuleID] [int] NOT NULL,
+	[Rating] [float] NOT NULL,
+	[NumRatings] [int] NOT NULL,
+	[ThreadID] [int] NOT NULL,
+ CONSTRAINT [PK_ModuleRatings] PRIMARY KEY CLUSTERED 
+(
+	[ModuleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Objectives]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Objectives](
+	[ModuleID] [int] NOT NULL,
+	[BloomLevel] [varchar](25) NOT NULL,
+	[ObjectiveText] [varchar](300) NOT NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_Objectives_1__51] PRIMARY KEY NONCLUSTERED 
+(
+	[ModuleID] ASC,
+	[BloomLevel] ASC,
+	[ObjectiveText] ASC,
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OtherResources]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OtherResources](
+	[ModuleID] [int] NOT NULL,
+	[ResourceDescriptiveText] [varchar](400) NOT NULL,
+	[ResourceLink] [varchar](200) NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_OtherResources] PRIMARY KEY CLUSTERED 
+(
+	[ModuleID] ASC,
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Prereqs]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Prereqs](
+	[ModuleID] [int] NOT NULL,
+	[PrerequisiteText] [varchar](200) NOT NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_Prereqs] PRIMARY KEY CLUSTERED 
+(
+	[ModuleID] ASC,
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SeeAlso]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SeeAlso](
+	[ModuleID] [int] NULL,
+	[Description] [varchar](200) NULL,
+	[AltModuleIdentifier] [varchar](35) NULL,
+	[OrderID] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Topics]    Script Date: 3/15/2020 11:59:40 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Topics](
+	[ModuleID] [int] NOT NULL,
+	[TopicText] [varchar](200) NOT NULL,
+	[OrderID] [int] NOT NULL,
+ CONSTRAINT [PK_Topics] PRIMARY KEY CLUSTERED 
+(
+	[ModuleID] ASC,
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Materials] ADD  CONSTRAINT [DF_Materials_Status]  DEFAULT (0) FOR [InitialModuleID]
+GO
+ALTER TABLE [dbo].[Materials] ADD  CONSTRAINT [DF_Materials_Rating]  DEFAULT (0) FOR [Rating]
+GO
+ALTER TABLE [dbo].[Materials] ADD  CONSTRAINT [DF_Materials_RatingImage]  DEFAULT ('images/stars0.gif') FOR [RatingImage]
+GO
+ALTER TABLE [dbo].[Materials] ADD  CONSTRAINT [DF_Materials_NumberOfRatings]  DEFAULT (0) FOR [NumberOfRatings]
+GO
+ALTER TABLE [dbo].[Materials] ADD  CONSTRAINT [DF_Materials_AccessFlag]  DEFAULT ((-1)) FOR [AccessFlag]
+GO
+ALTER TABLE [dbo].[Module] ADD  CONSTRAINT [DF_Module_Date]  DEFAULT (getdate()) FOR [Date]
+GO
+ALTER TABLE [dbo].[Module] ADD  CONSTRAINT [DF_Module_Status]  DEFAULT (0) FOR [Status]
+GO
+ALTER TABLE [dbo].[Module] ADD  CONSTRAINT [DF_Module_Submitter]  DEFAULT ('') FOR [Submitter]
+GO
+ALTER TABLE [dbo].[Module] ADD  CONSTRAINT [DF_Module_CheckInComments]  DEFAULT ('') FOR [CheckInComments]
+GO
+ALTER TABLE [dbo].[ModuleBases] ADD  CONSTRAINT [DF_ModuleBases_LockedBy]  DEFAULT ('') FOR [LockedBy]
+GO
+ALTER TABLE [dbo].[ModuleRatings] ADD  CONSTRAINT [DF_ModuleRatings_Rating]  DEFAULT (0) FOR [Rating]
+GO
+ALTER TABLE [dbo].[ModuleRatings] ADD  CONSTRAINT [DF_ModuleRatings_NumRatings]  DEFAULT (0) FOR [NumRatings]
+GO
+ALTER TABLE [dbo].[Module]  WITH NOCHECK ADD  CONSTRAINT [FK_Module_ModuleBases] FOREIGN KEY([BaseID])
+REFERENCES [dbo].[ModuleBases] ([BaseID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Module] CHECK CONSTRAINT [FK_Module_ModuleBases]
+GO
+ALTER TABLE [dbo].[ModuleGroups]  WITH CHECK ADD  CONSTRAINT [FK_ModuleGroups_ModuleBases] FOREIGN KEY([BaseID])
+REFERENCES [dbo].[ModuleBases] ([BaseID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ModuleGroups] CHECK CONSTRAINT [FK_ModuleGroups_ModuleBases]
+GO
+ALTER TABLE [dbo].[ModuleLog]  WITH NOCHECK ADD  CONSTRAINT [FK_ModuleLog_Module] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ModuleLog] CHECK CONSTRAINT [FK_ModuleLog_Module]
+GO
+ALTER TABLE [dbo].[ModuleMaterialsLink]  WITH NOCHECK ADD  CONSTRAINT [FK_5ccc512d-bef0-47f8-9df6-bbdceb0f07e7] FOREIGN KEY([MaterialID])
+REFERENCES [dbo].[Materials] ([MaterialID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ModuleMaterialsLink] CHECK CONSTRAINT [FK_5ccc512d-bef0-47f8-9df6-bbdceb0f07e7]
+GO
+ALTER TABLE [dbo].[ModuleMaterialsLink]  WITH NOCHECK ADD  CONSTRAINT [FK_ca02cfd5-73b1-4089-98fb-364863711387] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ModuleMaterialsLink] CHECK CONSTRAINT [FK_ca02cfd5-73b1-4089-98fb-364863711387]
+GO
+ALTER TABLE [dbo].[ModuleRatings]  WITH NOCHECK ADD  CONSTRAINT [FK_ModuleRatings_Module] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[ModuleRatings] CHECK CONSTRAINT [FK_ModuleRatings_Module]
+GO
+ALTER TABLE [dbo].[Objectives]  WITH NOCHECK ADD  CONSTRAINT [FK_8d810522-aa37-4faa-be9b-6adf2a332aea] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Objectives] CHECK CONSTRAINT [FK_8d810522-aa37-4faa-be9b-6adf2a332aea]
+GO
+ALTER TABLE [dbo].[OtherResources]  WITH NOCHECK ADD  CONSTRAINT [FK_c0d00c32-bb7a-47af-8c68-dd5fd47c383c] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[OtherResources] CHECK CONSTRAINT [FK_c0d00c32-bb7a-47af-8c68-dd5fd47c383c]
+GO
+ALTER TABLE [dbo].[Prereqs]  WITH NOCHECK ADD  CONSTRAINT [FK_37490761-1077-44b7-9a56-8ce3d8eb4e93] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Prereqs] CHECK CONSTRAINT [FK_37490761-1077-44b7-9a56-8ce3d8eb4e93]
+GO
+ALTER TABLE [dbo].[SeeAlso]  WITH NOCHECK ADD  CONSTRAINT [FK_SeeAlso_Module] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[SeeAlso] CHECK CONSTRAINT [FK_SeeAlso_Module]
+GO
+ALTER TABLE [dbo].[Topics]  WITH NOCHECK ADD  CONSTRAINT [FK_ba105067-1457-4ea3-8313-a7036091e2ea] FOREIGN KEY([ModuleID])
+REFERENCES [dbo].[Module] ([ModuleID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Topics] CHECK CONSTRAINT [FK_ba105067-1457-4ea3-8313-a7036091e2ea]
+GO
